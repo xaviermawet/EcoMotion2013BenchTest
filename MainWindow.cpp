@@ -571,7 +571,7 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
     // Create power curve
     QwtPointSeriesData* powerSerieData = new QwtPointSeriesData(powerPoints);
     PlotCurve* powerCurve = new PlotCurve(
-                tr("Puissance ") + param.testName(), QPen(Qt::darkBlue));
+                tr("Puissance ") + param.testName(), QPen(picker.light(this->couplePowerPlot->itemList().count())));
     powerCurve->setData(powerSerieData);
     powerCurve->setAxes(Plot::xTop, Plot::yRight);
     powerCurve->attach(this->couplePowerPlot);
@@ -581,7 +581,7 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
     QwtPointSeriesData* specificPowerSerieData =
             new QwtPointSeriesData(specificPowerPoints);
     PlotCurve* specificPowerCurve = new PlotCurve(
-              tr("Puissance spécifique ") + param.testName(),QPen(Qt::darkBlue));
+              tr("Puissance spécifique ") + param.testName(),QPen(picker.light(this->coupleSpecificPowerPlot->itemList().count())));
     specificPowerCurve->setData(specificPowerSerieData);
     specificPowerCurve->setAxes(Plot::xTop, Plot::yRight);
     specificPowerCurve->attach(this->coupleSpecificPowerPlot);
@@ -590,7 +590,7 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
     // Create couple curve for couplePowerPlot
     QwtPointSeriesData* coupleSerieData1 = new QwtPointSeriesData(couplePoints);
     PlotCurve* coupleCurve1 = new PlotCurve(
-                tr("Couple ") + param.testName(), QPen(Qt::darkRed));
+                tr("Couple ") + param.testName(), QPen(picker.light(this->couplePowerPlot->itemList().count())));
     coupleCurve1->setData(coupleSerieData1);
     coupleCurve1->attach(this->couplePowerPlot);
     this->setPlotCurveVisibile(coupleCurve1, true);
@@ -599,7 +599,7 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
     // Create couple curve for coupleSpecificPowerPlot
     QwtPointSeriesData* coupleSerieData2 = new QwtPointSeriesData(couplePoints);
     PlotCurve* coupleCurve2 = new PlotCurve(
-                tr("Couple ") + param.testName(), QPen(Qt::darkRed));
+                tr("Couple ") + param.testName(), QPen(picker.light(this->coupleSpecificPowerPlot->itemList().count())));
     coupleCurve2->setData(coupleSerieData2);
     coupleCurve2->attach(this->coupleSpecificPowerPlot);
     this->setPlotCurveVisibile(coupleCurve2, true);
@@ -608,7 +608,7 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
     // Create reduction ratio curve for reductionRatioPlot
     QwtPointSeriesData* reductionRatioSerieData1 = new QwtPointSeriesData(reductionRatioPoints1);
     PlotCurve* reductionRatioCurve1 = new PlotCurve(
-                tr("i rouleau ") + param.testName(), QPen(Qt::darkBlue));
+                tr("i rouleau ") + param.testName(), QPen(picker.light(this->reductionRatioPlot->itemList().count())));
     reductionRatioCurve1->setData(reductionRatioSerieData1);
     reductionRatioCurve1->setAxes(Plot::xTop, Plot::yLeft);
     reductionRatioCurve1->attach(this->reductionRatioPlot);
@@ -618,7 +618,7 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
     // Create reduction ratio curve for reductionRatioPlot
     QwtPointSeriesData* reductionRatioSerieData2 = new QwtPointSeriesData(reductionRatioPoints2);
     PlotCurve* reductionRatioCurve2 = new PlotCurve(
-                tr("i moteur ") + param.testName(), QPen(Qt::darkRed));
+                tr("i moteur ") + param.testName(), QPen(picker.light(this->reductionRatioPlot->itemList().count())));
     reductionRatioCurve2->setData(reductionRatioSerieData2);
     reductionRatioCurve2->attach(this->reductionRatioPlot);
     this->setPlotCurveVisibile(reductionRatioCurve2, true);
@@ -709,7 +709,7 @@ void MainWindow::createWheelSlippageCurve(
     // Create wheel slippage curve
     QwtPointSeriesData* serieData = new QwtPointSeriesData(wheelSlippagePoints);
     PlotCurve* curve = new PlotCurve(
-                tr("Glissement ") + param.testName(), QPen(Qt::darkBlue));
+                tr("Glissement ") + param.testName(), QPen(picker.light(this->wheelSlippagePlot->itemList().count())));
     curve->setData(serieData);
     curve->attach(this->wheelSlippagePlot);
     this->setPlotCurveVisibile(curve, true);
@@ -822,7 +822,7 @@ void MainWindow::on_addCurvePushButton_clicked(void)
         QwtPointSeriesData* serieData = new QwtPointSeriesData(vect);
 
         // Create a new curves
-        PlotCurve* curve = new PlotCurve(curveName, QPen(Qt::darkRed, 1));
+        PlotCurve* curve = new PlotCurve(curveName, QPen(picker.light(this->megasquirtDataPlot->itemList().count())));
         curve->setData(serieData);
         curve->attach(this->megasquirtDataPlot);
 

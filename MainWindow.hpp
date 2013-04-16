@@ -41,7 +41,7 @@
 #define KEY_MEGASQUIRT_DAT "MegasquirtDAT"
 #define KEY_MEGASQUIRT_CSV "MegasquirtCSV"
 
-#define NB_COLOR 10
+#define NB_COLOR 6
 
 typedef QList<Plot*> PlotList;
 

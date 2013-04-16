@@ -14,9 +14,16 @@ class ColorPicker
         QColor light(int ind, int alpha = 255) const;
         QColor dark (int ind, int alpha = 255) const;
 
+        QColor colorRandom(void) const;
+        QColor lightRandom(void) const;
+        QColor darkRandom (void) const;
+
+        QColor random(void) const;
+
     protected:
 
         int _inc;
+        int _nbColors;
 };
 
 #endif /* __COLORPICKER_HPP__ */
