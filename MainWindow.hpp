@@ -1,8 +1,3 @@
-/* TODO
- *---------
- * couleurs aléatoires pour les courbes
- * inverser i rouleau et i moteur (centrer le graph sur i rouleau)
- */
 #ifndef __MAINWINDOW_HPP__
 #define __MAINWINDOW_HPP__
 
