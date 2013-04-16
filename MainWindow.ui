@@ -238,7 +238,7 @@
     </property>
     <widget class="QMenu" name="menuGraphic">
      <property name="title">
-      <string>&amp;Graphique</string>
+      <string>&amp;Graphique courant</string>
      </property>
      <addaction name="actionShowGrid"/>
      <addaction name="actionShowCrossLine"/>
@@ -249,6 +249,7 @@
     </widget>
     <addaction name="menuGraphic"/>
     <addaction name="actionExportToPDF"/>
+    <addaction name="actionEraseAllCurves"/>
    </widget>
    <widget class="QMenu" name="menuConfigure">
     <property name="title">
@@ -409,6 +410,21 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionEraseAllCurves">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Icons/erase</normaloff>:/Icons/erase</iconset>
+   </property>
+   <property name="text">
+    <string>Effacer toutes les courbes</string>
+   </property>
+   <property name="toolTip">
+    <string>Effacer toutes les courbes de tous les graphiques</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
    </property>
   </action>
  </widget>

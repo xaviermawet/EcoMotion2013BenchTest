@@ -953,6 +953,30 @@ void MainWindow::on_actionExportToPDF_triggered(void)
                             this->currentPlot()->size());
 }
 
+void MainWindow::on_actionEraseAllCurves_triggered(void)
+{
+    foreach (Plot* plot, this->plots)
+    {
+        foreach (QwtPlotItem* item, plot->itemList())
+        {
+            // if the plot item isn't a curve
+            if (item->rtti() != QwtPlotItem::Rtti_PlotCurve)
+                continue;
+
+            // Delete the curve
+            PlotCurve* curve = (PlotCurve*) item;
+            if (curve == NULL)
+                continue;
+
+            curve->detach();
+            delete curve;
+        }
+
+        // Refresh the plot to erase curves
+        plot->replot();
+    }
+}
+
 void MainWindow::eraseCurve(void)
 {
     // if no curve associated to the legend item. This shouldn't happen!

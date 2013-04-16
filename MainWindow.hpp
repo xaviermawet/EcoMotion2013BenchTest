@@ -1,8 +1,8 @@
 /* TODO
  *---------
- * ation pour tout effacer
  * vérifier qu'il y a des tr partout
  * couleurs aléatoires pour les courbes
+ * inverser i rouleau et i moteur (centrer le graph sur i rouleau)
  */
 #ifndef __MAINWINDOW_HPP__
 #define __MAINWINDOW_HPP__
@@ -97,6 +97,7 @@ class MainWindow : public QMainWindow
         void on_actionDatToCSV_triggered(void);
         void on_actionConfigureMegasquirtFileName_triggered(void);
         void on_actionExportToPDF_triggered(void);
+        void on_actionEraseAllCurves_triggered(void);
 
         // Personal slots
         void  updateMenus(void);
