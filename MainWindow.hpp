@@ -1,3 +1,9 @@
+/* TODO
+ *---------
+ * ation pour tout effacer
+ * vérifier qu'il y a des tr partout
+ * couleurs aléatoires pour les courbes
+ */
 #ifndef __MAINWINDOW_HPP__
 #define __MAINWINDOW_HPP__
 
@@ -100,6 +106,7 @@ class MainWindow : public QMainWindow
         void centerOnCurve(void);
         void changeCurveColor(void);
         void createPolynomialTrendline(void);
+        void renameCurve(void);
         void setPlotCurveVisibile(QwtPlotItem* item, bool visible);
         void showLegendContextMenu(QwtPlotItem const* item, QPoint const& pos);
 

@@ -88,6 +88,8 @@ void MainWindow::createPlotLegendContextMenu(void)
                 QIcon(":/Icons/tendLine"),
                 tr("Ajouter une courbe de tendance polynomiale"), this,
                 SLOT(createPolynomialTrendline()));
+    this->legendContextMenu->addAction(
+                tr("Renommer"), this, SLOT(renameCurve()));
 }
 
 void MainWindow::createMegasquirtDataPlotZone(void)
@@ -1039,6 +1041,39 @@ void MainWindow::createPolynomialTrendline(void)
     trendlineCurve->setData(trendlineSeriesData);
     trendlineCurve->attach(this->curveAssociatedToLegendItem->plot());
     this->setPlotCurveVisibile(trendlineCurve, true);
+}
+
+void MainWindow::renameCurve(void)
+{
+    // if no curve associated to the legend item. This shouldn't happen!
+    if (this->curveAssociatedToLegendItem == NULL)
+        return;
+
+    bool ok(false);
+    QString newName = QInputDialog::getText(
+                this, tr("Renommer une courbe"),
+                tr("Nouveau nom pour la courbe ") +
+                this->curveAssociatedToLegendItem->title().text() + " :",
+                QLineEdit::Normal, QString(), &ok);
+
+    if (!ok) // User canceled
+        return;
+
+    try
+    {
+        if (newName.isEmpty())
+            throw QException(tr("Vous deve rentrer un nom pour la courbe"));
+
+        // Check if curve name exists
+        foreach (QwtPlotItem* item, this->currentPlot()->itemList())
+            if (item->title().text() == newName)
+                throw QException(tr("Une autre courbe porte déjà ce nom"));
+    }
+    catch(QException const& ex)
+    {
+        QMessageBox::warning(this, tr("Impossible de renommer la courbe"),
+                             ex.what());
+    }
 }
 
 void MainWindow::setPlotCurveVisibile(QwtPlotItem* item, bool visible)
