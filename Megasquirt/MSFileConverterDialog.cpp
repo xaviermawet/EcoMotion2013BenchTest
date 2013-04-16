@@ -47,7 +47,7 @@ void MSFileConverterDialog::on_convertPushButton_clicked(void)
                     QDir::homePath(), tr("Fichier CSV (*.csv)"));
 
         if (csvFileName.isEmpty())
-            throw QException("Aucun fichier de sauvegade renseigné");
+            throw QException(tr("Aucun fichier de sauvegade renseigné"));
 
         /* delete CSV if already exists */
         QFile csvFile(csvFileName);

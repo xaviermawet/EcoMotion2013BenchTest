@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget* parent) :
     legendContextMenu(NULL), curveAssociatedToLegendItem(NULL),
     megasquirtDataPlot(NULL), MSPlotParser(), couplePowerPlot(NULL),
     coupleSpecificPowerPlot(NULL), reductionRatioPlot(NULL),
-    wheelSlippagePlot(NULL), benchParser()
+    wheelSlippagePlot(NULL), benchParser(), picker(NB_COLOR)
 {
     // Display Configuration
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
@@ -94,7 +94,7 @@ void MainWindow::createPlotLegendContextMenu(void)
 
 void MainWindow::createMegasquirtDataPlotZone(void)
 {
-    this->megasquirtDataPlot = new Plot("Données du Megasquirt", this);
+    this->megasquirtDataPlot = new Plot(tr("Données du Megasquirt"), this);
     this->megasquirtDataPlot->setAxisTitle(Plot::xBottom, tr("Temps (s)"));
     this->ui->megasquirtDataSplitter->addWidget(this->megasquirtDataPlot);
 
@@ -139,7 +139,7 @@ void MainWindow::createCouplePowerPlotZone(void)
 void MainWindow::createCoupleSpecificPowerPlotZone(void)
 {
     this->coupleSpecificPowerPlot = new DoubleYAxisPlot(
-                "Couple - Puissance spécifique", 2, this);
+                tr("Couple - Puissance spécifique"), 2, this);
     this->coupleSpecificPowerPlot->setAxisTitle(
                 Plot::yLeft,tr("Couple du moteur (N.m)"));;
     this->coupleSpecificPowerPlot->setAxisTitle(
@@ -1092,6 +1092,9 @@ void MainWindow::renameCurve(void)
         foreach (QwtPlotItem* item, this->currentPlot()->itemList())
             if (item->title().text() == newName)
                 throw QException(tr("Une autre courbe porte déjà ce nom"));
+
+        // Apply the new name
+        this->curveAssociatedToLegendItem->setTitle(newName);
     }
     catch(QException const& ex)
     {

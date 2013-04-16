@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     Plot/DoubleYAxisPlot.cpp \
     polifitgsl.cpp \
     Plot/AbstractDoubleAxisPlot.cpp \
-    Plot/DoubleXAxisPlot.cpp
+    Plot/DoubleXAxisPlot.cpp \
+    Utils/ColorPicker.cpp
 
 HEADERS  += MainWindow.hpp \
     Plot/Plot.hpp \
@@ -49,7 +50,8 @@ HEADERS  += MainWindow.hpp \
     Plot/DoubleYAxisPlot.hpp \
     polifitgsl.hpp \
     Plot/AbstractDoubleAxisPlot.hpp \
-    Plot/DoubleXAxisPlot.hpp
+    Plot/DoubleXAxisPlot.hpp \
+    Utils/ColorPicker.hpp
 
 FORMS    += MainWindow.ui \
     Megasquirt/MSFileConverterDialog.ui \

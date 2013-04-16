@@ -1,6 +1,5 @@
 /* TODO
  *---------
- * vérifier qu'il y a des tr partout
  * couleurs aléatoires pour les courbes
  * inverser i rouleau et i moteur (centrer le graph sur i rouleau)
  */
@@ -20,6 +19,7 @@
 #include "Plot/PlotCurve.hpp"
 #include "Utils/QException.hpp"
 #include "Utils/QCSVParser.hpp"
+#include "Utils/ColorPicker.hpp"
 #include "Megasquirt/MSManager.hpp"
 #include "Megasquirt/MSFileConverterDialog.hpp"
 #include "Megasquirt/MSFileParameterDialog.hpp"
@@ -40,6 +40,8 @@
 #define KEY_PROTOWHEEL     "ProtoWheel"
 #define KEY_MEGASQUIRT_DAT "MegasquirtDAT"
 #define KEY_MEGASQUIRT_CSV "MegasquirtCSV"
+
+#define NB_COLOR 10
 
 typedef QList<Plot*> PlotList;
 
@@ -133,6 +135,9 @@ class MainWindow : public QMainWindow
 
         // List of all Plots
         PlotList plots;
+
+        // For random color generation
+        ColorPicker picker;
 };
 
 #endif /* __MAINWINDOW_HPP__ */
