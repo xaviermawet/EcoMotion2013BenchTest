@@ -1029,7 +1029,11 @@ void MainWindow::changeCurveColor(void)
 
     // If the user cancels the dialog, an invalid color is returned
     if (newColor.isValid())
-        this->curveAssociatedToLegendItem->setPen(QPen(newColor));
+    {
+        QPen pen = this->curveAssociatedToLegendItem->pen();
+        pen.setColor(newColor);
+        this->curveAssociatedToLegendItem->setPen(pen);
+    }
 }
 
 void MainWindow::createPolynomialTrendline(void)
@@ -1072,6 +1076,7 @@ void MainWindow::createPolynomialTrendline(void)
     // Création de la courbe
     QwtPointSeriesData* trendlineSeriesData =
             new QwtPointSeriesData(curvePoints);
+
     PlotCurve* trendlineCurve = new PlotCurve(
                 this->curveAssociatedToLegendItem->title().text() +
                 tr(" Poly(") + QString::number(degree) + ")",
