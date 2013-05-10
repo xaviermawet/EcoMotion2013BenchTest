@@ -964,10 +964,16 @@ void MainWindow::on_actionExportToPDF_triggered(void)
     if (pdfFile.isNull() || pdfFile.isEmpty()) // User canceled
         return;
 
+    // Ask precision
+    ExportConfigurationDialog exportConfig;
+    if(exportConfig.exec() != QDialog::Accepted)
+        return;
+
     QwtPlotRenderer renderer;
     renderer.setDiscardFlag(QwtPlotRenderer::DiscardBackground);
-    renderer.renderDocument(this->currentPlot(), pdfFile,
-                            this->currentPlot()->size());
+    renderer.renderDocument(
+                this->currentPlot(), pdfFile,
+                this->currentPlot()->size() / exportConfig.precision());
 }
 
 void MainWindow::on_actionEraseAllCurves_triggered(void)

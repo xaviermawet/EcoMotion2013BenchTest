@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     polifitgsl.cpp \
     Plot/AbstractDoubleAxisPlot.cpp \
     Plot/DoubleXAxisPlot.cpp \
-    Utils/ColorPicker.cpp
+    Utils/ColorPicker.cpp \
+    ExportConfigurationDialog.cpp
 
 HEADERS  += MainWindow.hpp \
     Plot/Plot.hpp \
@@ -51,12 +52,14 @@ HEADERS  += MainWindow.hpp \
     polifitgsl.hpp \
     Plot/AbstractDoubleAxisPlot.hpp \
     Plot/DoubleXAxisPlot.hpp \
-    Utils/ColorPicker.hpp
+    Utils/ColorPicker.hpp \
+    ExportConfigurationDialog.hpp
 
 FORMS    += MainWindow.ui \
     Megasquirt/MSFileConverterDialog.ui \
     Megasquirt/MSDataParameterDialog.ui \
-    Megasquirt/MSFileParameterDialog.ui
+    Megasquirt/MSFileParameterDialog.ui \
+    ExportConfigurationDialog.ui
 
 RESOURCES += \
     Resources.qrc

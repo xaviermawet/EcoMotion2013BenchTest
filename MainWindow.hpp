@@ -20,6 +20,7 @@
 #include "Megasquirt/MSFileParameterDialog.hpp"
 #include "Megasquirt/MSDataParameterDialog.hpp"
 #include "polifitgsl.hpp"
+#include "ExportConfigurationDialog.hpp"
 #include <qwt_legend_item.h>
 #include <qwt_plot_renderer.h>
 #include <qwt_plot_rescaler.h>
