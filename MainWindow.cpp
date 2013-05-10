@@ -357,7 +357,7 @@ QDir MainWindow::getMegasquirtDataFolder(void)
     // Get dir path
     QString dirPath = QFileDialog::getExistingDirectory(
                       this, tr("Sélectionnez le dossier contenant "
-                      "les données du Megasquirt"), QDir::homePath());
+                      "les données du Megasquirt"));
 
     if (dirPath.isEmpty()) // User canceled
         throw QException(tr("Aucun dossier sélectionné"));
@@ -557,7 +557,9 @@ void MainWindow::createCoupleAndPowerCurves(QVector<double> const& inertieTimes,
         // create curves coordinates
         powerPoints.append(QPointF(rpm_b, power));
         couplePoints.append(QPointF(rpm_b, couple));
-        specificPowerPoints.append(QPointF(rpm_b, specificPower));
+        specificPowerPoints.append(
+                    QPointF(rpm_b,specificPower *
+                         (benchParser.row(indiceMS).at(2).toDouble() / rpm_b)));
 
         reductionRatioPoints1.append(
                    QPointF(rpm_b,
